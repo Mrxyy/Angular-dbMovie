@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script>
+			function jsonp(url,data,callback){
+				// 1.处理data和生成一个函数名
+				var b = '?'
+				for(k in data){
+					b+=(k+'='+data[k]+'&')
+				}
+				var fun = 'fun' + Date.now()
+				var src =url+ b + 'callback='+fun
+				window[fun] = callback
+				console.log(src)
+				// 2.生成script标签
+				var script =  document.createElement('script')
+				script.src = src
+				document.body.append(script)
+			}
+// 			var a	= {
+// 					a:1,
+// 					b:2
+// 				}
+			jsonp('http://api.douban.com/v2/movie/top250',{},function(data){console.log(data)})
+		</script>
+	</body>
+</html>

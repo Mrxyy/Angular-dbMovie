@@ -1,0 +1,48 @@
+<div class="panel panel-default" ng-show='movieDate'>
+	<!-- Default panel contents -->
+	<div class="panel-body">
+		<h1>正在上映的电影-北京</h1>
+	</div>
+	<!-- List group -->
+	<ul class="list-group">
+		<li class="list-group-item" ng-repeat='v in movieDate'>
+			<span class="badge">{{v.rating.average}}</span>
+			<div class="media">
+				<div class="media-left">
+					<a href="javascript:">
+						<img class="media-object" ng-src="{{v.images.small}}" alt="..." width="100px" height="100px">
+					</a>
+				</div>
+				<div class="media-body">
+					<h4 class="media-heading">{{v.title}}</h4>
+					<p>类型：<span ng-repeat='va in v.genres'>{{va}}{{$index == (v.genres.length-1)?"":"、"}}</span> 上映年份 ：{{v.year}}</p>
+					<p>导演：<span ng-repeat='va in v.directors'>{{va.name}}{{$index == (v.directors.length-1)?"":"、"}}</span></p>
+					<p>主演：<span ng-repeat='va in v.casts'>{{va.name}} {{$index == (v.casts.length-1)?"":"、"}}</span></p>
+				</div>
+			</div>
+		</li>
+	</ul>
+	<div class="panel-footer">
+		<pre>共有：{{total}}条记录 , 有{{peage.length}}页</pre>
+		<nav aria-label="Page navigation" class="text-center">
+			<ul class="pagination">
+				<li>
+					<a href="javascript:" aria-label="Previous()" ng-click="pre()">
+						<span aria-hidden="true">&laquo; 上一页</span>
+					</a>
+				</li>
+				<li>
+					<a href="javascript:" ng-click="next()" aria-label="Next">
+						<span aria-hidden="true"> 下一页 &raquo; </span>
+					</a>
+				</li>
+			</ul>
+		</nav>
+	</div>
+</div>
+<div ng-hide='movieDate' class="vx">
+	<div class="containvx">
+	</div>
+	<div class="innervx">
+	</div>
+</div>

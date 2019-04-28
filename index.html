@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html ng-app = "app">
+	<!-- ng-init="movieName='豆瓣电影'" -->
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link rel="stylesheet" href="./public/css/bootstrap.min.css">
+		<!--<link rel="stylesheet" href="./moviecat/app/bower_components/angular/angular-csp.css">-->
+		<link rel="stylesheet" href="public/css/app.css">
+		<script src="views/bower_components/angular/angular.js" type="text/javascript" charset="utf-8"></script>
+		<script src="views/bower_components/angular-route/angular-route.js" type="text/javascript" charset="utf-8"></script>
+		<title></title>
+	</head>
+	<body ng-controller='main'>
+		<!-- <div class="container"> -->
+		<nav class="navbar navbar-inverse navbar-fixed-top ">
+			<div class="container-fluid">
+				<div class="navbar-header">
+					<button class="navbar-toggle collapsed" data-toggle="collapse" data-target="#ce">
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+					</button>
+					<a href="" class="navbar-brand">
+						{{movieName}}
+					</a>
+				</div>
+				<div class="collapse navbar-collapse  navbar-right" id="ce">
+					<form action="" class="navbar-form navbar-left">
+						<div class="form-group">
+							<input type="text" class="form-control" placeholder="Search...">
+						</div>
+					</form>
+					<ul class="nav navbar-nav">
+						<li><a href="">Dashboard</a></li>
+						<li><a href="">Settings</a></li>
+						<li><a href="">profile</a></li>
+						<li><a href="">Help</a></li>
+					</ul>
+				</div>
+			</div>
+		</nav>
+		<div class="row">
+			<div class="col-sm-3 col-md-2  left">
+				<ul class="nav nav-pills nav-stacked">
+					<li role="presentation"><a href="#/in_theaters/1">Home</a></li>
+					<li role="presentation"><a href="#/coming_soon/1">Profile</a></li>
+					<li role="presentation"><a href="#/top250/1">Messages</a></li>
+				</ul>
+			</div>
+			<div class="col-sm-9 col-md-10 col-sm-offset-3 col-md-offset-2" ng-view>
+			</div>
+		</div>
+		<script type="text/javascript" src="views/routes/http.js"></script>
+		<script type="text/javascript" src="views/routes/controler.js"></script>
+		<script type="text/javascript" src="app.js"></script>
+	</body>
+</html>
